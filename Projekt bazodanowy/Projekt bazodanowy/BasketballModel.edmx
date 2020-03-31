@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseBasketballModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DatabaseBasketballModelStoreContainer">
+    <EntitySet Name="Zespol" EntityType="DatabaseBasketballModel.Store.Zespol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prezes" EntityType="DatabaseBasketballModel.Store.Prezes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trener" EntityType="DatabaseBasketballModel.Store.Trener" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Hala" EntityType="DatabaseBasketballModel.Store.Hala" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Zawodnik" EntityType="DatabaseBasketballModel.Store.Zawodnik" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ZespolPrezes" Association="DatabaseBasketballModel.Store.ZespolPrezes">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Prezes" EntitySet="Prezes" />
+    </AssociationSet>
+    <AssociationSet Name="ZespolTrener" Association="DatabaseBasketballModel.Store.ZespolTrener">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Trener" EntitySet="Trener" />
+    </AssociationSet>
+    <AssociationSet Name="ZespolHala" Association="DatabaseBasketballModel.Store.ZespolHala">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Hala" EntitySet="Hala" />
+    </AssociationSet>
+    <AssociationSet Name="ZespolZawodnik" Association="DatabaseBasketballModel.Store.ZespolZawodnik">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Zespol">
+    <Key>
+      <PropertyRef Name="zespol_id" />
+    </Key>
+    <Property Name="zespol_id" Type="int" Nullable="false" />
+    <Property Name="nazwa" Type="varchar" Nullable="false" MaxLength="50" />
+    
+    <Property Name="Prezes_prezes_id" Type="int" Nullable="false" />
+    <Property Name="Hala_hala_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prezes">
+    <Key>
+      <PropertyRef Name="prezes_id" />
+    </Key>
+    <Property Name="prezes_id" Type="int" Nullable="false" />
+    <Property Name="nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trener">
+    <Key>
+      <PropertyRef Name="trener_id" />
+    </Key>
+    <Property Name="trener_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="zespol_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hala">
+    <Key>
+      <PropertyRef Name="hala_id" />
+    </Key>
+    <Property Name="hala_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwa" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zawodnik">
+    <Key>
+      <PropertyRef Name="zawodnik_id" />
+    </Key>
+    <Property Name="zawodnik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwisko" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="numer" Type="int" Nullable="false" />
+    <Property Name="zespol_id" Type="int" Nullable="false" />
+    <Property Name="data_urodzin" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="ZespolPrezes">
+    <End Role="Zespol" Type="DatabaseBasketballModel.Store.Zespol" Multiplicity="*" />
+    <End Role="Prezes" Type="DatabaseBasketballModel.Store.Prezes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Prezes">
+        <PropertyRef Name="prezes_id" />
+      </Principal>
+      <Dependent Role="Zespol">
+        <PropertyRef Name="Prezes_prezes_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZespolTrener">
+    <End Role="Zespol" Type="DatabaseBasketballModel.Store.Zespol" Multiplicity="1" />
+    <End Role="Trener" Type="DatabaseBasketballModel.Store.Trener" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zespol">
+        <PropertyRef Name="zespol_id" />
+      </Principal>
+      <Dependent Role="Trener">
+        <PropertyRef Name="zespol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZespolHala">
+    <End Role="Zespol" Type="DatabaseBasketballModel.Store.Zespol" Multiplicity="*" />
+    <End Role="Hala" Type="DatabaseBasketballModel.Store.Hala" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Hala">
+        <PropertyRef Name="hala_id" />
+      </Principal>
+      <Dependent Role="Zespol">
+        <PropertyRef Name="Hala_hala_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZespolZawodnik">
+    <End Role="Zespol" Type="DatabaseBasketballModel.Store.Zespol" Multiplicity="1" />
+    <End Role="Zawodnik" Type="DatabaseBasketballModel.Store.Zawodnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zespol">
+        <PropertyRef Name="zespol_id" />
+      </Principal>
+      <Dependent Role="Zawodnik">
+        <PropertyRef Name="zespol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseBasketballModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Zespol">
+          <Key>
+            <PropertyRef Name="zespol_id" />
+          </Key>
+          <Property Name="zespol_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Prezes" Relationship="DatabaseBasketballModel.ZespolPrezes" FromRole="Zespol" ToRole="Prezes" />
+          <NavigationProperty Name="Trener" Relationship="DatabaseBasketballModel.ZespolTrener" FromRole="Zespol" ToRole="Trener" />
+          
+          <NavigationProperty Name="Hala" Relationship="DatabaseBasketballModel.ZespolHala" FromRole="Zespol" ToRole="Hala" />
+          <NavigationProperty Name="Zawodnik" Relationship="DatabaseBasketballModel.ZespolZawodnik" FromRole="Zespol" ToRole="Zawodnik" />
+        </EntityType>
+        <EntityContainer Name="DatabaseBasketballEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Zespol" EntityType="Self.Zespol" />
+          <EntitySet Name="Prezes" EntityType="DatabaseBasketballModel.Prezes" />
+          <EntitySet Name="Trener" EntityType="DatabaseBasketballModel.Trener" />
+          <AssociationSet Name="ZespolPrezes" Association="DatabaseBasketballModel.ZespolPrezes">
+            <End Role="Zespol" EntitySet="Zespol" />
+            <End Role="Prezes" EntitySet="Prezes" />
+          </AssociationSet>
+          <AssociationSet Name="ZespolTrener" Association="DatabaseBasketballModel.ZespolTrener">
+            <End Role="Zespol" EntitySet="Zespol" />
+            <End Role="Trener" EntitySet="Trener" />
+          </AssociationSet>
+          <EntitySet Name="Hala" EntityType="DatabaseBasketballModel.Hala" />
+          <AssociationSet Name="ZespolHala" Association="DatabaseBasketballModel.ZespolHala">
+            <End Role="Zespol" EntitySet="Zespol" />
+            <End Role="Hala" EntitySet="Hala" />
+          </AssociationSet>
+          <EntitySet Name="Zawodnik" EntityType="DatabaseBasketballModel.Zawodnik" />
+          <AssociationSet Name="ZespolZawodnik" Association="DatabaseBasketballModel.ZespolZawodnik">
+            <End Role="Zespol" EntitySet="Zespol" />
+            <End Role="Zawodnik" EntitySet="Zawodnik" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Prezes">
+          <Key>
+            <PropertyRef Name="prezes_id" />
+          </Key>
+          <Property Name="prezes_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="nazwisko" Type="String" Nullable="false" />
+          <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolPrezes" FromRole="Prezes" ToRole="Zespol" />
+          <Property Name="email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="trener_id" />
+          </Key>
+          <Property Name="trener_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwisko" Type="String" Nullable="false" />
+          <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolTrener" FromRole="Trener" ToRole="Zespol" />
+          <Property Name="zespol_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ZespolPrezes">
+          <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+          <End Type="DatabaseBasketballModel.Prezes" Role="Prezes" Multiplicity="1" />
+        </Association>
+        <Association Name="ZespolTrener">
+          <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+          <End Type="DatabaseBasketballModel.Trener" Role="Trener" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zespol">
+              <PropertyRef Name="zespol_id" />
+            </Principal>
+            <Dependent Role="Trener">
+              <PropertyRef Name="zespol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Hala">
+          <Key>
+            <PropertyRef Name="hala_id" />
+          </Key>
+          <Property Name="hala_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" Nullable="false" />
+          <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolHala" FromRole="Hala" ToRole="Zespol" />
+        </EntityType>
+        <Association Name="ZespolHala">
+          <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+          <End Type="DatabaseBasketballModel.Hala" Role="Hala" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Zawodnik">
+          <Key>
+            <PropertyRef Name="zawodnik_id" />
+          </Key>
+          <Property Name="zawodnik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwisko" Type="String" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolZawodnik" FromRole="Zawodnik" ToRole="Zespol" />
+          <Property Name="zespol_id" Type="Int32" Nullable="false" />
+          <Property Name="data_urodzin" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="ZespolZawodnik">
+          <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+          <End Type="DatabaseBasketballModel.Zawodnik" Role="Zawodnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zespol">
+              <PropertyRef Name="zespol_id" />
+            </Principal>
+            <Dependent Role="Zawodnik">
+              <PropertyRef Name="zespol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseBasketballModelStoreContainer" CdmEntityContainer="DatabaseBasketballEntities">
+    <EntitySetMapping Name="Zespol">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Zespol)">
+        <MappingFragment StoreEntitySet="Zespol">
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prezes">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Prezes)">
+        <MappingFragment StoreEntitySet="Prezes">
+          <ScalarProperty Name="prezes_id" ColumnName="prezes_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trener">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Trener)">
+        <MappingFragment StoreEntitySet="Trener">
+          <ScalarProperty Name="trener_id" ColumnName="trener_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hala">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Hala)">
+        <MappingFragment StoreEntitySet="Hala">
+          <ScalarProperty Name="hala_id" ColumnName="hala_id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zawodnik">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Zawodnik)">
+        <MappingFragment StoreEntitySet="Zawodnik">
+          <ScalarProperty Name="zawodnik_id" ColumnName="zawodnik_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+          <ScalarProperty Name="data_urodzin" ColumnName="data_urodzin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ZespolPrezes" TypeName="DatabaseBasketballModel.ZespolPrezes" StoreEntitySet="Zespol">
+      <EndProperty Name="Prezes">
+        <ScalarProperty Name="prezes_id" ColumnName="Prezes_prezes_id" />
+      </EndProperty>
+      <EndProperty Name="Zespol">
+        <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ZespolHala" TypeName="DatabaseBasketballModel.ZespolHala" StoreEntitySet="Zespol">
+      <EndProperty Name="Hala">
+        <ScalarProperty Name="hala_id" ColumnName="Hala_hala_id" />
+      </EndProperty>
+      <EndProperty Name="Zespol">
+        <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

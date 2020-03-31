@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseBasketballModelStoreContainer" CdmEntityContainer="DatabaseBasketballEntities">
+    <EntitySetMapping Name="Zespol">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Zespol)">
+        <MappingFragment StoreEntitySet="Zespol">
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prezes">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Prezes)">
+        <MappingFragment StoreEntitySet="Prezes">
+          <ScalarProperty Name="prezes_id" ColumnName="prezes_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trener">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Trener)">
+        <MappingFragment StoreEntitySet="Trener">
+          <ScalarProperty Name="trener_id" ColumnName="trener_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hala">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Hala)">
+        <MappingFragment StoreEntitySet="Hala">
+          <ScalarProperty Name="hala_id" ColumnName="hala_id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zawodnik">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseBasketballModel.Zawodnik)">
+        <MappingFragment StoreEntitySet="Zawodnik">
+          <ScalarProperty Name="zawodnik_id" ColumnName="zawodnik_id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+          <ScalarProperty Name="data_urodzin" ColumnName="data_urodzin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ZespolPrezes" TypeName="DatabaseBasketballModel.ZespolPrezes" StoreEntitySet="Zespol">
+      <EndProperty Name="Prezes">
+        <ScalarProperty Name="prezes_id" ColumnName="Prezes_prezes_id" />
+      </EndProperty>
+      <EndProperty Name="Zespol">
+        <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ZespolHala" TypeName="DatabaseBasketballModel.ZespolHala" StoreEntitySet="Zespol">
+      <EndProperty Name="Hala">
+        <ScalarProperty Name="hala_id" ColumnName="Hala_hala_id" />
+      </EndProperty>
+      <EndProperty Name="Zespol">
+        <ScalarProperty Name="zespol_id" ColumnName="zespol_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

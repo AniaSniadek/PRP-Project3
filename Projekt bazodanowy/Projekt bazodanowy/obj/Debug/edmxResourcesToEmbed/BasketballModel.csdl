@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseBasketballModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Zespol">
+    <Key>
+      <PropertyRef Name="zespol_id" />
+    </Key>
+    <Property Name="zespol_id" Type="Int32" Nullable="false" />
+    <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Prezes" Relationship="DatabaseBasketballModel.ZespolPrezes" FromRole="Zespol" ToRole="Prezes" />
+    <NavigationProperty Name="Trener" Relationship="DatabaseBasketballModel.ZespolTrener" FromRole="Zespol" ToRole="Trener" />
+    <NavigationProperty Name="Hala" Relationship="DatabaseBasketballModel.ZespolHala" FromRole="Zespol" ToRole="Hala" />
+    <NavigationProperty Name="Zawodnik" Relationship="DatabaseBasketballModel.ZespolZawodnik" FromRole="Zespol" ToRole="Zawodnik" />
+  </EntityType>
+  <EntityContainer Name="DatabaseBasketballEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Zespol" EntityType="Self.Zespol" />
+    <EntitySet Name="Prezes" EntityType="DatabaseBasketballModel.Prezes" />
+    <EntitySet Name="Trener" EntityType="DatabaseBasketballModel.Trener" />
+    <AssociationSet Name="ZespolPrezes" Association="DatabaseBasketballModel.ZespolPrezes">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Prezes" EntitySet="Prezes" />
+    </AssociationSet>
+    <AssociationSet Name="ZespolTrener" Association="DatabaseBasketballModel.ZespolTrener">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Trener" EntitySet="Trener" />
+    </AssociationSet>
+    <EntitySet Name="Hala" EntityType="DatabaseBasketballModel.Hala" />
+    <AssociationSet Name="ZespolHala" Association="DatabaseBasketballModel.ZespolHala">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Hala" EntitySet="Hala" />
+    </AssociationSet>
+    <EntitySet Name="Zawodnik" EntityType="DatabaseBasketballModel.Zawodnik" />
+    <AssociationSet Name="ZespolZawodnik" Association="DatabaseBasketballModel.ZespolZawodnik">
+      <End Role="Zespol" EntitySet="Zespol" />
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Prezes">
+    <Key>
+      <PropertyRef Name="prezes_id" />
+    </Key>
+    <Property Name="prezes_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="nazwisko" Type="String" Nullable="false" />
+    <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolPrezes" FromRole="Prezes" ToRole="Zespol" />
+    <Property Name="email" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trener">
+    <Key>
+      <PropertyRef Name="trener_id" />
+    </Key>
+    <Property Name="trener_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwisko" Type="String" Nullable="false" />
+    <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolTrener" FromRole="Trener" ToRole="Zespol" />
+    <Property Name="zespol_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ZespolPrezes">
+    <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+    <End Type="DatabaseBasketballModel.Prezes" Role="Prezes" Multiplicity="1" />
+  </Association>
+  <Association Name="ZespolTrener">
+    <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+    <End Type="DatabaseBasketballModel.Trener" Role="Trener" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zespol">
+        <PropertyRef Name="zespol_id" />
+      </Principal>
+      <Dependent Role="Trener">
+        <PropertyRef Name="zespol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Hala">
+    <Key>
+      <PropertyRef Name="hala_id" />
+    </Key>
+    <Property Name="hala_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" Nullable="false" />
+    <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolHala" FromRole="Hala" ToRole="Zespol" />
+  </EntityType>
+  <Association Name="ZespolHala">
+    <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+    <End Type="DatabaseBasketballModel.Hala" Role="Hala" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Zawodnik">
+    <Key>
+      <PropertyRef Name="zawodnik_id" />
+    </Key>
+    <Property Name="zawodnik_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwisko" Type="String" Nullable="false" />
+    <Property Name="numer" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Zespol" Relationship="DatabaseBasketballModel.ZespolZawodnik" FromRole="Zawodnik" ToRole="Zespol" />
+    <Property Name="zespol_id" Type="Int32" Nullable="false" />
+    <Property Name="data_urodzin" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <Association Name="ZespolZawodnik">
+    <End Type="DatabaseBasketballModel.Zespol" Role="Zespol" Multiplicity="1" />
+    <End Type="DatabaseBasketballModel.Zawodnik" Role="Zawodnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zespol">
+        <PropertyRef Name="zespol_id" />
+      </Principal>
+      <Dependent Role="Zawodnik">
+        <PropertyRef Name="zespol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

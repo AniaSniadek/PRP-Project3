@@ -1,0 +1,38 @@
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\DatabaseBasketball.mdf
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\DatabaseBasketball_log.ldf
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowyTests.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowyTests.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.exe
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\EntityFramework.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.exe.config
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\EntityFramework.xml
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\pl\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csprojAssemblyReference.cache
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csproj.CoreCompileInputs.cache
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csproj.CopyComplete
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\DatabaseBasketball.mdf
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\DatabaseBasketball_log.ldf
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowyTests.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowyTests.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.exe
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\EntityFramework.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Projekt bazodanowy.exe.config
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\EntityFramework.xml
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\bin\Debug\pl\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csprojAssemblyReference.cache
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csproj.CoreCompileInputs.cache
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.csproj.CopyComplete
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.dll
+C:\Users\sniad\Desktop\STUDIA\2 ROK\Pracownia programowania\Projekt REST API\Projekt bazodanowy\Projekt bazodanowyTests\obj\Debug\Projekt bazodanowyTests.pdb
